@@ -18,7 +18,7 @@
     }
   
     try {
-      const response = await fetch('/download', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/download`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: url.value })
