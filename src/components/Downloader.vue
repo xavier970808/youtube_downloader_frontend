@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <img src="./icons/image.png" alt="YouTube logo" class="logo" />
+      <img src="logo" alt="YouTube logo" class="logo" />
       <h1>YouTube 影片下載器</h1>
       <input v-model="url" placeholder="輸入 YouTube 影片連結" />
       <button @click="download">下載影片</button>
@@ -9,6 +9,7 @@
   
   <script setup>
   import { ref } from 'vue'
+  import logo from '@/assets/logo.png'
   
   const url = ref('')
   
