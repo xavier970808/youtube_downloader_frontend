@@ -27,9 +27,16 @@
       })
   
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || '下載失敗')
-      }
+    let errorMessage = '下載失敗'
+    try {
+      const errorData = await response.json()
+      errorMessage = errorData.error || errorMessage
+    } catch {
+      const text = await response.text()
+      console.warn('非 JSON 錯誤回應：', text)
+    }
+    throw new Error(errorMessage)
+  }
   
       const blob = await response.blob()
       const link = document.createElement('a')
